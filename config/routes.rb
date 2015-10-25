@@ -55,5 +55,5 @@ Rails.application.routes.draw do
   #   end
   
   root 'tasks#index'
-  resources :tasks, except: [:index]
+  resources :tasks, except: [:index, :new, :edit, :show]
 end

@@ -1,1 +1,7 @@
-<p>Hello.</p>
+<%= render 'task_form' %>
+
+<% if @tasks.size > 0 %>
+  <%= render 'tasks_list' %>
+<% else %>
+  <p>You have no tasks. Why not create one?</p>
+<% end %>
