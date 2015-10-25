@@ -12,7 +12,9 @@
     <h2>Tasks:</h2>
     <% if @tasks.size > 0 %>
       
-      <a class="complete-link" href="#" data-completed-tasks="hidden">Show completed</a>
+      <% if @complete.size > 0 %>
+        <a class="complete-link" href="#" data-completed-tasks="hidden">Show completed</a>
+      <% end %>
       
       <div class="tasks-note">
         <% if @incomplete.size == 0 %>

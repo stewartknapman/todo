@@ -11,11 +11,18 @@
 
 .tasks-list li {
   display: block;
-  padding: 0.25rem 0;
+  padding: 0.5em 0;
   border-bottom: #eee solid 1px;
+  overflow: auto;
 }
+
+.tasks-list label {
+  display: inline-block;
+  padding: 0.5em 0;
+}
+
 .tasks-list .new-task {
-  padding-top: 2rem;
+  padding: 2rem 0.25em;
   border-bottom: none;
 }
 
@@ -35,7 +42,6 @@ input[type="text"] {
   float: left;
   width: 60%;
   padding: 0.5em;
-/*   margin-left: 1em; */
   border: #663399 solid 1px;
   border-right: none;
   border-top-left-radius: 3px;
@@ -73,7 +79,10 @@ input[type="submit"]:hover {
   display: none;
 }
 .editing .edit-task {
-  display: inline-block;
+  display: block;
+  width: 80%;
+  float: left;
+  padding-left: 0.75em;
 }
 .editing label {
   display: none;

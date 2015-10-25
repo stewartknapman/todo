@@ -3,6 +3,7 @@ class TasksController < ApplicationController
   def index
     @new_task = Task.new
     @tasks = Task.all
+    @complete = @tasks.where complete: true
     @incomplete = @tasks.where complete: false
   end
 
