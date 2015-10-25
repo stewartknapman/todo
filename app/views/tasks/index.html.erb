@@ -1,7 +1,59 @@
-<%= render 'task_form' %>
+<div class="wrapper">
+  <header>
+    <h1>Todo</h1>
+    <p>A simple&mdash;but <em>awesome</em>&mdash;to do app.</p>
+  </header>
+  
+  <main>
+    <h2>Tasks:</h2>
+    <% if @tasks.size > 0 %>
+    
+      <% if @incomplete.size == 0 %>
+        <p>Congratulations, you've completed all your tasks!</p>
+        <img src="https://m.popkey.co/7f8895/ovQ5J.gif" alt="High Five!">
+      <% else %>
+        <p>
+          You have <span class="incomplete-count"><%= @incomplete.size %></span> incomplete <%= 'task'.pluralize @incomplete.size %>.
+          <% if @incomplete.size == 1 %>Nearly there!<% end %>
+        </p>
+      <% end %>
+      
+      <ol class="tasks-list">
+        <% @tasks.each_with_index do |task, i| %>
+          <li class="task<% if task.complete %> complete<% end %>">
+            <%= form_for task do |f| %>
+              <label for="task_complete_<%= i %>">
+                <%= f.check_box :complete, { id: "task_complete_#{i}" } %>
+                <%#= task.title %>
+              </label>
+              
+              <%= f.text_field :title %>
+              <%= f.submit %>
+              
+              <!-- <a href="#" data-edit-task>edit</a> -->
+              <%= link_to task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete task #{task.title}?"}, class: 'delete-task' do %>delete<% end %>
+            <% end %>
+          </li>
+        <% end %>
+        <li class="new-task">
+          <%= form_for @new_task, url: {action: "create"} do |f| %>
+            <%= f.text_field :title %>
+            <%= f.submit "Create a new task" %>
+          <% end %>
+        </li>
+      </ol>
 
-<% if @tasks.size > 0 %>
-  <%= render 'tasks_list' %>
-<% else %>
-  <p>You have no tasks. Why not create one?</p>
-<% end %>
+    <% else %>
+      <p>You have no tasks. Why not create one?</p>
+      
+      <ol class="tasks-list">
+        <li class="new-task">
+          <%= form_for @new_task, url: {action: "create"} do |f| %>
+            <%= f.text_field :title %>
+            <%= f.submit "Create your first task" %>
+          <% end %>
+        </li>
+      </ol>
+    <% end %>
+  </main>
+</div>
