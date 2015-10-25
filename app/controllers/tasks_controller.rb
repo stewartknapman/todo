@@ -7,19 +7,22 @@ class TasksController < ApplicationController
   end
 
   def create
-    Task.create task_params
+    @task = Task.create task_params
+    flash[:notice] = "Your task &ldquo;#{@task.title}&rdquo; was created."
     redirect_to :root
   end
 
   def update
     @task = Task.find(params[:id])
     @task.update_attributes(task_params)
+    flash[:notice] = "Your task &ldquo;#{@task.title}&rdquo; was updated."
     redirect_to :root
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    flash[:notice] = "Your task &ldquo;#{@task.title}&rdquo; was removed."
     redirect_to :root
   end
   

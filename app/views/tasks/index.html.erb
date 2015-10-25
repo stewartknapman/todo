@@ -5,18 +5,24 @@
   </header>
   
   <main>
+    <% flash.each do |key, value| %>
+      <p class="flash"><%= value.html_safe %></p>
+    <% end %>
+    
     <h2>Tasks:</h2>
     <% if @tasks.size > 0 %>
     
-      <% if @incomplete.size == 0 %>
-        <p>Congratulations, you've completed all your tasks!</p>
-        <img src="https://m.popkey.co/7f8895/ovQ5J.gif" alt="High Five!">
-      <% else %>
-        <p>
-          You have <span class="incomplete-count"><%= @incomplete.size %></span> incomplete <%= 'task'.pluralize @incomplete.size %>.
-          <% if @incomplete.size == 1 %>Nearly there!<% end %>
-        </p>
-      <% end %>
+      <div class="incomplete-tasks">
+        <% if @incomplete.size == 0 %>
+          <p>Congratulations, you've completed all your tasks!</p>
+          <img src="https://m.popkey.co/7f8895/ovQ5J.gif" alt="High Five!">
+        <% else %>
+          <p>
+            You have <span class="incomplete-count"><%= @incomplete.size %></span> incomplete <%= 'task'.pluralize @incomplete.size %>.
+            <% if @incomplete.size == 1 %>Nearly there!<% end %>
+          </p>
+        <% end %>
+      </div>
       
       <ol class="tasks-list">
         <% @tasks.each_with_index do |task, i| %>
