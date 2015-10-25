@@ -62,3 +62,14 @@ $(document).on('click', '[data-edit-task]', function (e) {
 $(document).on('click', 'input[type="checkbox"]', function () {
   $(this).closest('form').submit();
 });
+
+// On page load
+$(function () {
+  // If we have a flash message make it disappear
+  var $flash = $('.flash');
+  if ($flash.length > 0) {
+    setTimeout(function () {
+      $flash.fadeOut();
+    }, 5000);
+  }
+});
