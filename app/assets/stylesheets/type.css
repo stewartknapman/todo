@@ -1,0 +1,32 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Slab', serif;
+  color: #663399;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: .5s;
+}
+a:hover,
+a:active {
+  color: #663399;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+header em {
+  color: #663399;
+}

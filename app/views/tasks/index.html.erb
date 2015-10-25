@@ -1,7 +1,7 @@
 <div class="wrapper">
   <header>
-    <h1>Todo</h1>
-    <p>A simple&mdash;but <em>awesome</em>&mdash;to do app.</p>
+    <h1>Todo.</h1>
+    <p>A simple&mdash;but <em>awesome</em>&mdash;todo&nbsp;list.</p>
   </header>
   
   <main>
@@ -11,8 +11,10 @@
     
     <h2>Tasks:</h2>
     <% if @tasks.size > 0 %>
-    
-      <div class="incomplete-tasks">
+      
+      <a class="complete-link" href="#" data-completed-tasks="hidden">Show completed</a>
+      
+      <div class="tasks-note">
         <% if @incomplete.size == 0 %>
           <p>Congratulations, you've completed all your tasks!</p>
           <img src="https://m.popkey.co/7f8895/ovQ5J.gif" alt="High Five!">
@@ -26,18 +28,20 @@
       
       <ol class="tasks-list">
         <% @tasks.each_with_index do |task, i| %>
-          <li class="task<% if task.complete %> complete<% end %>">
+          <li class="task<% if task.complete %> complete<% end %>" data-task="<%= task.title %>">
             <%= form_for task do |f| %>
               <label for="task_complete_<%= i %>">
                 <%= f.check_box :complete, { id: "task_complete_#{i}" } %>
-                <%#= task.title %>
+                <%= task.title %>
               </label>
               
-              <%= f.text_field :title %>
-              <%= f.submit %>
+              <div class="edit-task">
+                <%= f.text_field :title %>
+                <%= f.submit "Update" %>
+              </div>
               
-              <!-- <a href="#" data-edit-task>edit</a> -->
-              <%= link_to task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete task #{task.title}?"}, class: 'delete-task' do %>delete<% end %>
+              <%= link_to task_path(task), method: :delete, data: {confirm: "Are you sure you want to delete task #{task.title}?"}, class: 'delete-link' do %>delete<% end %>
+              <a class="edit-link" href="#" data-edit-task="hidden">edit</a>
             <% end %>
           </li>
         <% end %>
@@ -50,7 +54,9 @@
       </ol>
 
     <% else %>
-      <p>You have no tasks. Why not create one?</p>
+      <div class="tasks-note">
+        <p>You have no tasks. Why not create one?</p>
+      </div>
       
       <ol class="tasks-list">
         <li class="new-task">

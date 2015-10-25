@@ -1,0 +1,89 @@
+.flash {
+  padding: 0.5rem;
+  color: #663399;
+  border: #663399 solid 1px;
+  background: rgba(102, 51, 153, 0.1);
+}
+
+.tasks-list {
+  list-style: none;
+}
+
+.tasks-list li {
+  display: block;
+  padding: 0.25rem 0;
+  border-bottom: #eee solid 1px;
+}
+.tasks-list .new-task {
+  padding-top: 2rem;
+  border-bottom: none;
+}
+
+.tasks-list .complete {
+  display: none;
+}
+.tasks-list .complete.show {
+  display: block;
+}
+.tasks-list .complete label {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+input[type="text"] {
+  display: block;
+  float: left;
+  width: 60%;
+  padding: 0.5em;
+/*   margin-left: 1em; */
+  border: #663399 solid 1px;
+  border-right: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+input[type="submit"] {
+  display: block;
+  float: left;
+  width: 40%;
+  padding: 0.5em;
+  color: #663399;
+  background-color: rgba(102, 51, 153, 0.1);
+  border: #663399 solid 1px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: .3s;
+}
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #663399;
+}
+
+input:focus,
+input:focus {
+  outline-color: #663399;
+}
+
+label:hover,
+input[type="checkbox"]:hover,
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.edit-task {
+  display: none;
+}
+.editing .edit-task {
+  display: inline-block;
+}
+.editing label {
+  display: none;
+}
+
+.edit-link,
+.delete-link,
+.complete-link {
+  float: right;
+  font-size: 0.75em;
+  margin-top: 0.75rem;
+  margin-left: 0.5em;
+}

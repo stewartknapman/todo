@@ -1,0 +1,71 @@
+html {
+  box-sizing: border-box;
+}
+@media (min-width: 37.5em) {
+  html {
+    font-size: 1.1em;
+  }
+}
+@media (min-width: 60em) {
+  html {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 75em) {
+  html {
+    font-size: 1.3em;
+  }
+}
+@media (min-width: 93.75em) {
+  html {
+    font-size: 1.4em;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+hr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin-bottom: 1rem;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button {
+  font-size: inherit;
+}
